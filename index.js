@@ -22,7 +22,8 @@ try {
           var firstEqual = vars[i].indexOf('=');
     	    var key = vars[i].substr(0,firstEqual);
     	    var value = vars[i].substr(firstEqual+1);
-    	    result = result.replace(key, value)
+    	    var regx = new RegExp(key, 'g')
+          result = result.replace(regx, value)
         }
         console.log('file2: '+filename)
         fs.writeFile(filename, result, 'utf8', function (err) {
